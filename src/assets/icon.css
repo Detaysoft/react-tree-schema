@@ -1,0 +1,16 @@
+.rfst-icon {
+    display: inline-block;
+    font-size: inherit;
+    height: 16px;
+    overflow: visible;
+    vertical-align: -2px;
+    margin-right: 5px;
+  }
+
+  .rfst-icon-caret-right {
+    width: 6px;
+  }
+
+  .rfst-icon-caret-down {
+    width: 10px;
+  }
