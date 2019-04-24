@@ -4,6 +4,7 @@
   "description": "React.js ile yazılmış tree kütüphanesi",
   "main": "dist/main.js",
   "scripts": {
+    "start": "nwb serve-react-app ./example/index.js",
     "build": "webpack --config webpack.config.js",
     "prepublish": "yarn build"
   },
@@ -39,6 +40,7 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.1.0",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "nwb": "^0.23.0"
   }
 }
