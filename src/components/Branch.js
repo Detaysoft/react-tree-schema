@@ -21,6 +21,7 @@ class Branch extends React.Component {
       parentNode,
       root,
       depth,
+      onClick,
     } = this.props;
 
     return (
@@ -36,6 +37,7 @@ class Branch extends React.Component {
                   parentNode={parentNode}
                   root={root}
                   depth={depth + 1}
+                  onClick={onClick}
                 />
               </li>
             ))
@@ -48,6 +50,7 @@ class Branch extends React.Component {
 
 Branch.defaultProps = {
   depth: 0,
+  onClick: () => {},
 };
 
 Branch.propTypes = {
@@ -55,6 +58,7 @@ Branch.propTypes = {
     parentNode: PropTypes.instanceOf(React.Component).isRequired,
     root: PropTypes.instanceOf(React.Component).isRequired,
     depth: PropTypes.number,
+    onClick: PropTypes.func,
 };
 
 export default Branch;

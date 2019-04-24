@@ -111,7 +111,7 @@ class Node extends React.Component {
           <div className="node-node" style={this.getNodeStyle()}>
             <div className="node-item">
               <div className="node-icon" onClick={() => this.toggleOpen()}>{this.getIcon()}</div>
-              <div className="node-text">{this.state.node.name}</div>
+              <div className="node-text" onClick = {() => this.props.node.onClick(this)}>{this.state.node.name}</div>
             </div>
             {
               this.state.node.childNodes && this.state.node.opened && (
@@ -132,6 +132,7 @@ class Node extends React.Component {
 
 Node.defaultProps = {
   depth: 0,
+  onClick: () => {},
 };
 
 Node.propTypes = {
@@ -140,6 +141,7 @@ Node.propTypes = {
   parentNode: PropTypes.instanceOf(React.Component).isRequired,
   root: PropTypes.instanceOf(React.Component).isRequired,
   depth: PropTypes.number,
+  onClick: PropTypes.func,
 };
 
 export default Node;
