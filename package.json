@@ -2,7 +2,7 @@
   "name": "react-tree",
   "version": "0.0.1",
   "description": "React.js ile yazılmış tree kütüphanesi",
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "prepublish": "yarn build"
