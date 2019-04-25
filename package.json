@@ -1,6 +1,6 @@
 {
   "name": "react-tree",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "React.js ile yazılmış tree kütüphanesi",
   "main": "dist/main.js",
   "scripts": {
