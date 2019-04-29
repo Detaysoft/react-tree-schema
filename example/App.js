@@ -7,7 +7,7 @@ class App extends React.Component {
       <div>
         <Root childNodes={[
           { 
-            name: 'React Takımı', 
+            name: 'React Team',
             opened: true ,
             childNodes: [
               { 
@@ -17,7 +17,7 @@ class App extends React.Component {
                 ]
               },
               {
-                name: 'Develepers', 
+                name: 'Developers', 
                 childNodes: [
                   { name: 'Kübra TURAN' },
                   { name: 'Reyhan ÜNAL' },

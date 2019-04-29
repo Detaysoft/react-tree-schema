@@ -20,13 +20,12 @@ class Node extends React.Component {
     this.childNodes = []
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.node.opened !== this.state.node.opened) {
-      this.setState({
-        node: nextProps.node,
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      node: Object.assign(this.state.node, {
+        opened: nextProps.node.opened
       })
-    }
-    return true;
+    })
   }
 
   close() {
