@@ -49,6 +49,11 @@ class Node extends React.Component {
       this.props.node.onClick()
   }
 
+  onContextMenu() {
+    if (typeof this.props.node.onContextMenu === 'function')
+      this.props.node.onContextMenu()
+  }
+
   toggleOpen() {
     if (this.state.node.childNodes)
       this.state.node.opened ? this.close() : this.open()
@@ -124,7 +129,7 @@ class Node extends React.Component {
           <div className="node-node" style={this.getNodeStyle()}>
             <div className="node-item">
               <div className="node-icon" onClick={() => this.toggleOpen()}>{this.getIcon()}</div>
-              <div className="node-text" onClick = {() => this.onClick()}>{this.state.node.name}</div>
+              <div className="node-text" onClick = {() => this.onClick()} onContextMenu = {() => this.onContextMenu()}>{this.state.node.name}</div>
             </div>
             {
               this.state.node.childNodes && this.state.node.opened && (
