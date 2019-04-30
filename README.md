@@ -2,7 +2,13 @@
 Tree component for React.js apps.
 
 ![image (1)](demo.gif)
+# Install
 
+```javascript
+
+npm install react-tree-schema
+
+```
 # Architecture
 ![image (1)](https://user-images.githubusercontent.com/30048977/56694176-cd0de400-66ee-11e9-9984-6ef9846e7090.png)
 
@@ -47,6 +53,7 @@ const Tree = () => (
 | opened | false | boolean | visible nodes of the noden  |
 | icon | none | object | icon of node |
 | onClick | none | function | Node on click |
+| onContextMenu | none | function | Node on context menu |
 
 
 ### Child Node Item
@@ -57,3 +64,4 @@ const Tree = () => (
 | opened | false | boolean | visible nodes of the noden  |
 | icon | none | object | icon of node |
 | onClick | none | function | Node on click |
+| onContextMenu | none | function | Node on context menu |
