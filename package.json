@@ -1,6 +1,6 @@
 {
   "name": "react-tree-schema",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "React.js ile yazılmış tree kütüphanesi",
   "main": "dist/main.js",
   "scripts": {
@@ -10,18 +10,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kubraturan/react-tree-schema.git"
+    "url": "git+https://github.com/Detaysoft/react-tree-schema.git"
   },
   "keywords": [
     "react",
     "tree"
   ],
-  "author": "kubraturan",
-  "license": "ISC",
+  "author": "Kübra TURAN <kbratrnn1907@gmail.com>",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kubraturan/react-tree-schema/issues"
+    "url": "https://github.com/Detaysoft/react-tree-schema/issues"
   },
-  "homepage": "https://github.com/kubraturan/react-tree-schema#readme",
+  "homepage": "https://github.com/Detaysoft/react-tree-schema#readme",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
