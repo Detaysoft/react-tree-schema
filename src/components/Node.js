@@ -14,6 +14,16 @@ class Node extends React.Component {
     this.state = {
       node: props.node,
     }
+
+    this.close = this.close.bind(this);
+    this.open = this.open.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.onContextMenu = this.onContextMenu.bind(this);
+    this.toggleOpen = this.toggleOpen.bind(this);
+    this.getDepthSize = this.getDepthSize.bind(this);
+    this.getContainerStyle = this.getContainerStyle.bind(this);
+    this.getNodeStyle = this.getNodeStyle.bind(this);
+    this.getIcon = this.getIcon.bind(this);
   }
 
   componentWillUpdate() {
@@ -128,8 +138,13 @@ class Node extends React.Component {
         <div className="node-container.node-title" style={this.getContainerStyle()}>
           <div className="node-node" style={this.getNodeStyle()}>
             <div className="node-item">
-              <div className="node-icon" onClick={() => this.toggleOpen()}>{this.getIcon()}</div>
-              <div className="node-text" onClick = {() => this.onClick()} onContextMenu = {() => this.onContextMenu()}>{this.state.node.name}</div>
+              <div className="node-icon" onClick={this.toggleOpen}>{this.getIcon()}</div>
+              <div
+                className="node-text"
+                onClick = {this.onClick}
+                onContextMenu = {this.onContextMenu}>
+                  {this.state.node.name}
+                </div>
             </div>
             {
               this.state.node.childNodes && this.state.node.opened && (
