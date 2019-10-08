@@ -1,5 +1,6 @@
 import React from 'react';
 import  Root from '../src/index.js';
+import Icons from '../src/icons';
 
 class App extends React.Component {
   render() {
@@ -8,12 +9,16 @@ class App extends React.Component {
         <Root childNodes={[
           { 
             name: 'React Team',
+            dropdown: <Icons.CaretRight/>,
             opened: true ,
             childNodes: [
               { 
                 name: 'Team Leader', 
+                dropdown: <Icons.CaretRight/>,
                 childNodes: [
-                  { name: 'Abdurrahman EKER' },
+                  { name: 'Abdurrahman EKER',
+                  dropdown: <Icons.CaretRight/>,
+                 },
                 ]
               },
               {

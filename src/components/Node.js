@@ -132,19 +132,31 @@ class Node extends React.Component {
     )
   }
 
+  getDropdown() {
+    var self = this;
+    if (self.state.node.dropdown){
+      return(
+        self.state.node.dropdown
+      )
+    }
+  }
+
   render() {
     return (
       <div className="node">
         <div className="node-container.node-title" style={this.getContainerStyle()}>
           <div className="node-node" style={this.getNodeStyle()}>
             <div className="node-item">
-              <div className="node-icon" onClick={this.toggleOpen}>{this.getIcon()}</div>
-              <div
-                className="node-text"
-                onClick = {this.onClick}
-                onContextMenu = {this.onContextMenu}>
-                  {this.state.node.name}
-                </div>
+              <div className='node-item-box'>
+                <div className="node-icon" onClick={this.toggleOpen}>{this.getIcon()}</div>
+                <div
+                  className="node-text"
+                  onClick = {this.onClick}
+                  onContextMenu = {this.onContextMenu}>
+                    {this.state.node.name}
+                  </div>
+              </div>
+                <div className="node-dropdown">{this.getDropdown()}</div>
             </div>
             {
               this.state.node.childNodes && this.state.node.opened && (

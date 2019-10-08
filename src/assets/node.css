@@ -21,6 +21,9 @@
 .node-item {
   display: flex;
   white-space: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
 }
 
 .node-icon {
@@ -39,14 +42,32 @@
   color: #5fa2dd;
 }
 
+.node-item-box {
+  display: flex;
+}
+
+.node-item:hover .node-dropdown {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .node-text {
   display: inline-block;
   padding-top:5px;
   height: 100%;
+  width: 90%;
   font-size: 13px;
   user-select: none;
   text-overflow: ellipsis;
 }
+
+.node-dropdown {
+  display: none
+}
+
 
 .node-icon-style {
   width: 50px;
