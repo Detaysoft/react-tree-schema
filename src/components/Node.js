@@ -11,12 +11,6 @@ class Node extends React.Component {
 
     this.childNodes = []
 
-    this.state = {
-      node: props.node,
-    }
-
-    this.close = this.close.bind(this);
-    this.open = this.open.bind(this);
     this.onClick = this.onClick.bind(this);
     this.onContextMenu = this.onContextMenu.bind(this);
     this.toggleOpen = this.toggleOpen.bind(this);
@@ -30,30 +24,6 @@ class Node extends React.Component {
     this.childNodes = []
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      node: Object.assign(this.state.node, {
-        opened: nextProps.node.opened
-      })
-    })
-  }
-
-  close() {
-    this.setState({
-      node: Object.assign(this.state.node, {
-        opened: false
-      })
-    })
-  }
-
-  open() {
-    this.setState({
-      node: Object.assign(this.state.node, {
-        opened: true
-      })
-    })
-  }
-
   onClick() {
     if (typeof this.props.node.onClick === 'function')
       this.props.node.onClick()
@@ -65,15 +35,16 @@ class Node extends React.Component {
   }
 
   toggleOpen() {
-    if (this.state.node.childNodes)
-      this.state.node.opened ? this.close() : this.open()
+    if (this.props.node.childNodes) {
+        this.props.node.opened ? this.props.node.onClose() : this.props.node.onOpen()
+    }
     return;
   }
 
   getDepthSize(depth = this.props.depth) {
     let padding = 23 * depth
 
-    if (!this.state.node.childNodes) {
+    if (!this.props.node.childNodes) {
       padding += 14
     }
 
@@ -97,28 +68,27 @@ class Node extends React.Component {
   }
 
   getIcon() {
-    var self = this;
-    if (self.state.node.childNodes) {
-      if (self.state.node.icon){ 
+    if (this.props.node.childNodes) {
+      if (this.props.node.icon){
           return (
             <div className="node-icon-style">
-              { 
+              {
                 <span className="node-caret">
                   {
-                    !self.state.node.opened ? 
+                    !this.props.node.opened ?
                     <Icons.CaretRight />:
                     <Icons.CaretDown/>
                   }
                 </span>
               }
-              {self.state.node.icon}
+              {this.props.node.icon}
             </div>
-          )  
+          )
       }
       return(
         <span className="node-caret">
           {
-            !self.state.node.opened ? 
+            !this.props.node.opened ?
             <Icons.CaretRight />:
             <Icons.CaretDown/>
           }
@@ -127,16 +97,15 @@ class Node extends React.Component {
     }
     return (
       <div className="node-icon-style">
-        {!self.state.node.icon ? <span className="node-caret"> <Icons.CaretRight /> </span> : self.state.node.icon}
+        {!this.props.node.icon ? <span className="node-caret"> <Icons.CaretRight /> </span> : this.props.node.icon}
       </div>
     )
   }
 
   getDropdown() {
-    var self = this;
-    if (self.state.node.dropdown){
+    if (this.props.node.dropdown){
       return(
-        self.state.node.dropdown
+        this.props.node.dropdown
       )
     }
   }
@@ -153,16 +122,16 @@ class Node extends React.Component {
                   className="node-text"
                   onClick = {this.onClick}
                   onContextMenu = {this.onContextMenu}>
-                    {this.state.node.name}
+                    {this.props.node.name}
                   </div>
               </div>
                 <div className="node-dropdown">{this.getDropdown()}</div>
             </div>
             {
-              this.state.node.childNodes && this.state.node.opened && (
+              this.props.node.childNodes && this.props.node.opened && (
               <Branch
                 ref={ref => ref && (this.childNodes = ref.childNodes)}
-                childNodes={this.state.node.childNodes}
+                childNodes={this.props.node.childNodes}
                 parentNode={this}
                 root={this.props.root}
                 depth={this.props.depth}

@@ -5,6 +5,8 @@ export const Node = (() => {
     name: PropTypes.string.isRequired,
     opened: PropTypes.boolean,
     icon: PropTypes.object,
+    onClose: PropTypes.function,
+    onOpen: PropTypes.function,
   }
 
   shape.childNodes = PropTypes.arrayOf(PropTypes.shape(shape))
